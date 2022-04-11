@@ -1,5 +1,6 @@
 package algorithm.kwangwoo.week9.q2056;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -8,7 +9,7 @@ public class Main {
     static int N;
     static int[] times;
     static int nodesCnt;
-    static LinkedList<LinkedList<Integer>> list;
+    static ArrayList<ArrayList<Integer>> list;
     static int[] remainCnt;
 
     public static void main(String[] args) {
@@ -16,16 +17,16 @@ public class Main {
 
         N = sc.nextInt();
         times = new int[N+1];
-        list = new LinkedList<LinkedList<Integer>>();
-        list.add(new LinkedList<Integer>());
+        list = new ArrayList<ArrayList<Integer>>(N + 1);
+        list.add(new ArrayList<>());
         remainCnt = new int[N+1];
         for (int i = 1; i <= N; i++) {
             times[i] = sc.nextInt();
             nodesCnt = sc.nextInt();
-            list.add(new LinkedList<Integer>());
+            list.add(new ArrayList<Integer>(nodesCnt));
             for (int j = 0; j < nodesCnt; j++) {
                 int item = sc.nextInt();
-                list.get(i).add(item);
+                list.get(item).add(i);
                 remainCnt[i]++;
             }
         }
